@@ -1,5 +1,5 @@
 
-public class Flower {
+public class Flower implements Comparable<Flower> {
     String name;
     int price;
     int number;
@@ -19,11 +19,15 @@ public class Flower {
         return name;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public int decrementNumber () {
+        return number--;
     }
 
     public int getPrice() {
         return price;
+    }
+    @Override
+    public int compareTo(Flower f){
+        return (this.price - f.price);
     }
 }

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Bouquet {
     public ArrayList<Flower> bouquet = new ArrayList<>();
@@ -8,13 +9,13 @@ public class Bouquet {
     }
 
     public void deleteFlower() {
-        bouquet.remove(bouquet.size()-1);
+        bouquet.remove(Collections.min(bouquet));
     }
 
-    public double getCost() {
+    public int getCost() {
         int cost = 0;
         for (Flower f : bouquet) {
-            cost += f.price;
+            cost += f.getPrice();
         }
         return cost;
     }
